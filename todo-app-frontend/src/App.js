@@ -1,16 +1,13 @@
 import React from "react"
-import LoginPage from "./Pages/LoginPage";
-import RegisterPage from "./Pages/RegisterPage";
-import HomePage from './Pages/HomePage';
-import { Routes, Route } from 'react-router-dom';
-
+import TodoList from "./Components/TodoList";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './styles/app.css';
 function App() {
   return (
-      <Routes>
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/" element={<HomePage />} />
-      </Routes>
+    <div className="App">
+      <TodoList />
+    </div>
+      
   );
 }
 
