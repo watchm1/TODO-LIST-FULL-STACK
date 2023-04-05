@@ -10,7 +10,7 @@ const TodoList = () => {
         let arr = localStorage.getItem("tasks");
         if(arr && arr.length > 0)
             setTaskList(JSON.parse(arr)); 
-    }, []);
+    }, [taskList]);
     const toggle = () => {
         setModal(!modal);
     }
@@ -22,6 +22,20 @@ const TodoList = () => {
         setTaskList(tempList);
         setModal(false);
     }
+
+    const deleteTask = (index) => {
+        let tempList = taskList;
+        tempList.splice(index, 1);
+        localStorage.setItem("tasks", JSON.stringify(tempList));
+        setTaskList(tempList);
+    }
+    const updateTask = (obj, index) => {
+        let tempList = taskList;
+        tempList[index] = obj;
+        setTaskList(tempList);
+        localStorage.setItem("tasks", JSON.stringify(taskList));
+    }
+
     return (
        
         <>
@@ -30,7 +44,7 @@ const TodoList = () => {
                 <button className = "btn btn-primary mt-2" onClick = {() => setModal(true)} >Create Task</button>
             </div>
             <div className = "task-container">
-            {taskList && taskList.map((obj , index) => <Card key={index} taskObj = {obj} index = {index}/> )}
+            {taskList && taskList.map((obj , index) => <Card key={index} taskObj = {obj} index = {index} handleDetele={deleteTask} handleUpdate={updateTask}/> )}
             </div>
             <CreateTask toggle = {toggle} modal = {modal} save = {saveTask}/>
         </>

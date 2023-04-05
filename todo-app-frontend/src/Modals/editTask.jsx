@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button , Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
-const CreateTask = ({modal, toggle, save}) => {
+const EditTask = ({modal, toggle, updateTask, taskObj}) => {
     const [taskName, setTaskName] = useState('');
     const [description, setDescription] = useState('');
-    const [counter, setCounter] = useState(0);
     const handleChange = (e) => {
         const {name, value} = e.target;
         if(name === "taskName")
@@ -11,20 +10,23 @@ const CreateTask = ({modal, toggle, save}) => {
         else if(name === "description")
             setDescription(value);
     }
-    const handleSave = () => {
-        let taskObj = {}
-        taskObj["Name"] = taskName;
-        taskObj["id"] = counter;
-        taskObj["Description"] = description;
-        save(taskObj);
+    const handleUpdate = (e) => {
+        e.preventDefault();
+        let tempObj = {};
+        tempObj["Name"] = taskName;
+        tempObj["Description"] = description;
+        updateTask(tempObj);
         setTaskName('');
         setDescription('');
-        setCounter(counter + 1);
+        toggle();
     }
-    
+    useEffect(() => {
+        setTaskName(taskObj.Name);
+        setDescription(taskObj.Description);
+    },[taskObj.Name, taskObj.Description])
     return (
        <Modal isOpen={modal} toggle={toggle}>
-            <ModalHeader toggle={toggle}>Create Task</ModalHeader>
+            <ModalHeader toggle={toggle}>Update Task</ModalHeader>
             <ModalBody>
                 <form>
                     <div className="form-group">
@@ -38,10 +40,10 @@ const CreateTask = ({modal, toggle, save}) => {
                 </form>
             </ModalBody>
             <ModalFooter>
-                <Button color="primary" onClick={handleSave}>Create</Button>{' '}
+                <Button color="primary" onClick={handleUpdate}>Update</Button>{' '}
                 <Button color="secondary" onClick={toggle}>Cancel</Button>
             </ModalFooter>
        </Modal>
     )
 }
-export default CreateTask;
+export default EditTask;
