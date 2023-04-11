@@ -30,6 +30,9 @@ class Router implements IRouter {
                 // call handler
                 return $route['handler']();
             }
+            else {
+                http_response_code(404);
+            }
         }
     }
 }
