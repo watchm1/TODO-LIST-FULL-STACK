@@ -1,14 +1,10 @@
 <?php
-namespace Base\Service\Router\Concrete;
-include_once '../Abstract/IRouter.php';
-include_once '../Abstract/IRoute.php';
 
-use Base\Service\Router\Virtual\IRouter;
 
 class Router implements IRouter {
-    protected $routes = array();
+    public $routes;
     public function AddRoute($method,$path ,$handler ,$middleware = array())
-    {
+    {        
         $this->routes[] = array(
             'method' => $method,
             'path' => $path,
@@ -29,10 +25,12 @@ class Router implements IRouter {
                 }
                 // call handler
                 call_user_func($route["handler"]);
+                
             }
             else {
-                http_response_code(405);
+                continue;
             }
         }
+        http_response_code(405);
     }
 }
