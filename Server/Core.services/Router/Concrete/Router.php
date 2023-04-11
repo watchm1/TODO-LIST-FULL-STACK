@@ -28,10 +28,10 @@ class Router implements IRouter {
                     $middleware();
                 }
                 // call handler
-                return $route['handler']();
+                call_user_func($route["handler"]);
             }
             else {
-                http_response_code(404);
+                http_response_code(405);
             }
         }
     }
