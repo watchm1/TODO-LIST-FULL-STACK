@@ -1,6 +1,6 @@
 <?php
 
-namespace Core\Utils\HTTP\Request;
+
 
 class Request {
     private array $data = array();
@@ -8,12 +8,11 @@ class Request {
     public function __construct()
     {
         $this->data['method'] = $_SERVER['REQUEST_METHOD'];
-        $this->data['path'] = parse_url($_SERVER['REQUEST_URI']);
+        $this->data['path'] = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
         $this->data['query'] = $_GET;
         $this->data['body'] = json_decode(file_get_contents('php://input'), true);
         $this->cookies = $_COOKIE;
     }
-
     /**
      * Getting Request method
      */

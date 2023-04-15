@@ -1,5 +1,5 @@
 <?php
-namespace Core\Utils\HTTP\Response;
+
 
 class Response {
     private array $data = array();
@@ -31,7 +31,7 @@ class Response {
             'httpOnly' => $httponly
         );
     }
-    public function Send():void
+    public function Send()
     {
         http_response_code($this->status);
         foreach ($this->responseHeaders as $name => $value)

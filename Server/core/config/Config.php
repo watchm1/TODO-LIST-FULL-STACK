@@ -1,5 +1,5 @@
 <?php
-use Core\Service\Config\IConfig;
+
 class EnvironmentConfiguration implements IConfig
 {
     private $config = array();

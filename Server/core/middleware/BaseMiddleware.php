@@ -1,6 +1,5 @@
 <?php
 
-namespace Core\Service\Middleware;
 
 class BaseMiddleware {
     private $handler;

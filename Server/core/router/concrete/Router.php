@@ -1,37 +1,31 @@
 <?php
-
-namespace Core\Router\Concrete\Router;
-use Core\Router\Virtual\Router\IRouter;
-
 class Router implements IRouter {
     public array $routes = array();
-    public function AddRoute($method,$path ,$handler ,$middleware = array()):void
+    public function AddRoute($method,$path ,$handler ,$middlewares = array()):void
     {        
         $this->routes[] = array(
             'method' => $method,
             'path' => $path,
             'handler' => $handler,
-            'middleware' => $middleware
+            'middlewares' => $middlewares
         );
     }
-    public function HandleRequest($method, $url)
+    public function HandleRequest($method, $url):void
     {
         foreach($this->routes as $route)
         {
-            if($route['method'] == $method && $route['path'] == $url)
+            if($route['method'] === $method && $route['path'] === $url)
             {
                 // before main function call the middlewares
-                foreach($route['middleware'] as $middleware)
+                foreach($route['middlewares'] as $middleware)
                 {
                     $middleware();
                 }
-                // call handler
-                call_user_func($route["handler"]);
+                if($route['handler'] != null)
+                    call_user_func($route['handler']);
                 
             }
-            else {
-                continue;
-            }
+
         }
         http_response_code(405);
     }
