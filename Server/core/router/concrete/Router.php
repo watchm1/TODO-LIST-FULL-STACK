@@ -23,10 +23,9 @@ class Router implements IRouter {
                 }
                 if($route['handler'] != null)
                     call_user_func($route['handler']);
-                
             }
 
         }
-        http_response_code(405);
+
     }
 }

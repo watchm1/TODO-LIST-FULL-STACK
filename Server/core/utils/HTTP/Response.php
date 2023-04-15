@@ -7,8 +7,8 @@ class Response {
     private array $responseHeaders = array();
     private array $cookies = array();
 
-    public function SetData($data):Response {
-        $this->$data = $data;
+    public function SetData(array $data = array()):Response {
+        $this->data = $data;
         return $this;
     }
     public function SetHeader($headers):Response {
@@ -31,9 +31,11 @@ class Response {
             'httpOnly' => $httponly
         );
     }
-    public function Send()
+    public function Send():void
     {
+
         http_response_code($this->status);
+
         foreach ($this->responseHeaders as $name => $value)
         {
             header("$name: $value");

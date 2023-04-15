@@ -9,7 +9,6 @@ class Request {
     {
         $this->data['method'] = $_SERVER['REQUEST_METHOD'];
         $this->data['path'] = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-        $this->data['query'] = $_GET;
         $this->data['body'] = json_decode(file_get_contents('php://input'), true);
         $this->cookies = $_COOKIE;
     }
@@ -33,10 +32,7 @@ class Request {
     /**
      * returning request query
      */
-    public function GetQuery()
-    {
-        return $this->data['query'];
-    }
+
     public function GetCookie($name)
     {
        if(isset($this->cookies[$name]))

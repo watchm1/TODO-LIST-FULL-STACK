@@ -11,18 +11,24 @@ include './router/concrete/Route.php';
 
 
 
-function handle()
+function handle():void
 {
     $request = new Request();
     $response = new Response();
-    $response->SetData(json_encode($request->GetBody()))->SetHeader(array('Content-Type' => 'application/json'))->SetStatus(200)->Send();
+    $response->SetData(array(
+        'message' => 'success',
+        'status-code' => 200,
+
+    ))->SetStatus(200)->SetHeader(array(
+        'Content-Type' => 'application/json',
+        'Access-Control-Allow-Origin' => '*',
+    ))->Send();
 }
 $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 if(isset($url))
 {
-
     $adminRouter = new Router();
-    $loginRoute = new Route("POST", "/api/v1/admin/login", function(){echo "valid function";});
+    $loginRoute = new Route("POST", "/api/v1/admin/login", 'handle');
     $loginRoute->AddMiddleware(function() {});
     $loginRoute->RegisterToRouter($adminRouter);
     $adminRouter->HandleRequest($_SERVER['REQUEST_METHOD'], $url);

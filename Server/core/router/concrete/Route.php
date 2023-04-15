@@ -7,7 +7,7 @@ class Route implements IRoute
 {
     private string $method;
     private string $path;
-    private $handler;
+    private mixed $handler;
     private array $middleware = array();
     
     public function __construct($method, $path, $handler)
