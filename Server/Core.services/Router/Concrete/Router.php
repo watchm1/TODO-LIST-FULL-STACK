@@ -1,9 +1,11 @@
 <?php
 
+namespace Core\Router\Concrete\Router;
+use Core\Router\Virtual\Router\IRouter;
 
 class Router implements IRouter {
-    public $routes;
-    public function AddRoute($method,$path ,$handler ,$middleware = array())
+    public array $routes = array();
+    public function AddRoute($method,$path ,$handler ,$middleware = array()):void
     {        
         $this->routes[] = array(
             'method' => $method,
