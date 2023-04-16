@@ -35,7 +35,6 @@ class Response {
     {
 
         http_response_code($this->status);
-
         foreach ($this->responseHeaders as $name => $value)
         {
             header("$name: $value");

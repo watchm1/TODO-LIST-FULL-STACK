@@ -2,6 +2,6 @@
 
 
 interface IConfig {
-    public function MigrateConfiguration(); // .env file
+    public function MigrateConfiguration($path); // .env file
     public function GetConfigDictionary(): array;
 }

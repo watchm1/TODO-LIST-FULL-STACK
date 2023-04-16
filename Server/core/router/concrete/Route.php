@@ -22,7 +22,6 @@ class Route implements IRoute
     }
     public function RegisterToRouter(Router $router):void
     {
-
         $router->AddRoute($this->method, $this->path, $this->handler, $this->middleware);
     }
 }

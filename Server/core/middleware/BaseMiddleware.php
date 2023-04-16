@@ -2,7 +2,7 @@
 
 
 class BaseMiddleware {
-    private $handler;
+    private mixed $handler;
 
     public function __construct($handler)
     {

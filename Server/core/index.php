@@ -27,10 +27,12 @@ function handle():void
 $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 if(isset($url))
 {
+
+
     $adminRouter = new Router();
     $loginRoute = new Route("POST", "/api/v1/admin/login", 'handle');
     $loginRoute->AddMiddleware(function() {});
     $loginRoute->RegisterToRouter($adminRouter);
-    $adminRouter->HandleRequest($_SERVER['REQUEST_METHOD'], $url);
+    //$adminRouter->HandleRequest($_SERVER['REQUEST_METHOD'], $url);
 }
 

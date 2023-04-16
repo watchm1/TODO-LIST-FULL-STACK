@@ -18,9 +18,7 @@ class Router implements IRouter {
             {
                 // before main function call the middlewares
                 foreach($route['middlewares'] as $middleware)
-                {
                     $middleware();
-                }
                 if($route['handler'] != null)
                     call_user_func($route['handler']);
             }
