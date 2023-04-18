@@ -1,6 +1,6 @@
 <?php
 
-
+namespace Core\Utils\HTTP;
 
 class Request {
     private array $data = array();
@@ -35,11 +35,11 @@ class Request {
 
     public function GetCookie($name)
     {
-       if(isset($this->cookies[$name]))
-       {
-           return $this->cookies[$name];
-       }
-       return null;
+        if(isset($this->cookies[$name]))
+        {
+            return $this->cookies[$name];
+        }
+        return null;
     }
     /**
      * Returning request body

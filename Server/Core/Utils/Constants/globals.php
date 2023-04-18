@@ -1,4 +1,5 @@
 <?php
+namespace Core\Utils\Constants;
 enum HttpCodes:int {
     case OK = 200;
     case CREATED = 201;

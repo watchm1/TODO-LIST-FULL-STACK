@@ -1,5 +1,6 @@
 <?php
 
+namespace Core\Utils\HTTP;
 
 class Response {
     private array $data = array();
