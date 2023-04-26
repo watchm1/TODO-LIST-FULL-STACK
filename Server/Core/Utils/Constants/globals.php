@@ -34,3 +34,11 @@ enum REQUIREMENTS: string {
     case DISPATCH = "DISPATCH_ALLOWED_GET_METHOD";
     case HOME = "TO_HOME_PAGE";
 }
+
+enum LogType: string {
+    case INFO = "INFO";
+    case WARNING = "WARNING";
+    case ERROR = "ERROR";
+    case DEBUG = "DEBUG";
+    case CONSOLE = "CONSOLE";
+}

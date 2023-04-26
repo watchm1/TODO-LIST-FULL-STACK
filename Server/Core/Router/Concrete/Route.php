@@ -1,7 +1,6 @@
 <?php
 
 namespace Core\Router\Concrete;
-include './Router/Virtual/IRoute.php';
 use Core\Router\Virtual\IRoute as IRoute;
 use Core\Router\Concrete\Router as Router;
 class Route implements IRoute

@@ -1,13 +1,6 @@
 <?php
 
-include_once './Router/Concrete/Router.php';
-include_once './Router/Concrete/Route.php';
-include_once './Utils/HTTP/Request.php';
-include_once './Utils/HTTP/Response.php';
-include_once './Middlewares/BaseMiddleware.php';
-include_once './Config/EnvConfiguration.php';
-include_once './Controllers/BaseController.php';
-include_once './Utils/Constants/globals.php';
+require '../vendor/autoload.php';
 use Core\Router\Concrete\Route as Route;
 use Core\Router\Concrete\Router as Router;
 use Core\Utils\HTTP\Request as Request;

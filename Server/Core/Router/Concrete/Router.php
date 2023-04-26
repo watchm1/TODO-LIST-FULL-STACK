@@ -1,7 +1,6 @@
 <?php
 
 namespace Core\Router\Concrete;
-include './Router/Virtual/IRouter.php';
 
 class Router implements \Core\Router\Virtual\IRouter
 {

@@ -3,7 +3,6 @@
 namespace Core\Config;
 use Dotenv\Dotenv;
 
-include_once './Config/IConfig.php';
 
 class EnvConfiguration implements IConfig
 {
