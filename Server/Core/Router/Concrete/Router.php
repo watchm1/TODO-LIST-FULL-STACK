@@ -2,6 +2,9 @@
 
 namespace Core\Router\Concrete;
 
+use Core\Utils\HTTP\Request;
+use Core\Utils\HTTP\Response;
+
 class Router implements \Core\Router\Virtual\IRouter
 {
 
@@ -25,7 +28,7 @@ class Router implements \Core\Router\Virtual\IRouter
                 foreach($route['middlewares'] as $middleware)
                     $middleware();
                 if($route['handler'] != null)
-                    call_user_func($route['handler']);
+                    call_user_func($route['handler'], new Request(), new Response());
             }
 
         }
