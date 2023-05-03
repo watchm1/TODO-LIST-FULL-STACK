@@ -31,10 +31,9 @@ enum HttpCodes:int {
 enum REQUIREMENTS: string {
     case LOGIN_REQUIRED = "TO_LOGIN_PAGE";
     case OTP_REQUIRED = "TO_OTP_PAGE";
-    case DISPATCH = "DISPATCH_ALLOWED_GET_METHOD";
+    case DISPATCH = "DISPATCH_RELATED_METHOD";
     case HOME = "TO_HOME_PAGE";
 }
-
 enum LogType: string {
     case INFO = "INFO";
     case WARNING = "WARNING";
