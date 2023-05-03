@@ -1,6 +1,8 @@
 <?php
 namespace Core\Storage\Virtual\Base;
-
+/**
+ * @template
+ */
 interface IRepository
 {
     public function GetAll(): array;

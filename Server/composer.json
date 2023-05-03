@@ -1,11 +1,17 @@
 {
   "require": {
     "vlucas/phpdotenv" :"^5.5",
-    "ext-http": "*"
+    "ext-http": "*",
+    "phpgenerics/phpgenerics": "dev-master"
   },
   "autoload": {
     "psr-4": {
-      "App\\":"app/"
+      "App\\":"API/"
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "mrsuh/php-generics": false
     }
   }
 }

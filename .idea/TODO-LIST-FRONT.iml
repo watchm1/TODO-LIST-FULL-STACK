@@ -2,7 +2,18 @@
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/Server/app" isTestSource="false" packagePrefix="App\" />
+      <sourceFolder url="file://$MODULE_DIR$/Server/API" isTestSource="false" packagePrefix="App\" />
+      <sourceFolder url="file://$MODULE_DIR$/Server/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/Server/tests" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/Server/vendor/psr/container" />
+      <excludeFolder url="file://$MODULE_DIR$/Server/vendor/symfony/console" />
+      <excludeFolder url="file://$MODULE_DIR$/Server/vendor/symfony/deprecation-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/Server/vendor/symfony/filesystem" />
+      <excludeFolder url="file://$MODULE_DIR$/Server/vendor/symfony/finder" />
+      <excludeFolder url="file://$MODULE_DIR$/Server/vendor/symfony/polyfill-intl-grapheme" />
+      <excludeFolder url="file://$MODULE_DIR$/Server/vendor/symfony/polyfill-intl-normalizer" />
+      <excludeFolder url="file://$MODULE_DIR$/Server/vendor/symfony/service-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/Server/vendor/symfony/string" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
